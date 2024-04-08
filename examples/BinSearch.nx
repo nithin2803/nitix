@@ -1,0 +1,41 @@
+func IterativeBinSearch(sorted_list, low, high, value) {
+    while low <= high: {
+        var mid = to_int((low + high )/2)
+
+        if get(sorted_list, mid) == value {
+            return mid
+        } elif get(sorted_list, mid) > value {
+            var high = mid - 1
+        } else {
+            var low = mid + 1
+        }
+    }
+    return -1
+}
+
+func RecursiveBinSearch(sorted_list, low, high, value) {
+    if low > high: return -1
+
+    var mid = to_int((low + high )/2)
+    if get(sorted_list, mid) == value {
+        return mid
+    } elif get(sorted_list, mid) > value {
+        return RecursiveBinSearch(sorted_list, low, mid - 1, value)
+    } else {
+        return RecursiveBinSearch(sorted_list, mid + 1, high, value)
+    }
+}
+
+var list_length = int_input("List Length: ")
+var list = []
+for i = 0 to list_length: {
+    var new_digit = int_input("Value #" + (i + 1) +": ")
+    var list = list + new_digit
+}
+var sorted = sort(list)
+print(sorted)
+var value = int_input("Element to search for: ")
+
+var result = RecursiveBinSearch(sorted, 0, len(sorted) - 1, value)
+
+if result == -1: print("Element " +  value + " not found in " + sorted) else: print("Element found at index: " + result )

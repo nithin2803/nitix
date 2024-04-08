@@ -1,0 +1,4 @@
+# This is the world's first program in Nitix
+for i = 0 to 10: {
+    print("Hello world! " + i)
+}

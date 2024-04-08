@@ -1,0 +1,49 @@
+# fun program
+func reverse_string_by_words(string) {
+	var i  = len(string) - 1
+	var start = var end = i + 1
+	var result = ""
+
+	while i >= 0 : {
+		if get(string, i) == " " {
+			var start = i + 1
+			while start != end: {
+				var result = result + get(string, start)
+				var start = start + 1
+			}
+			var result = result + " "
+			var end = i
+		}
+		var i = i - 1
+	}
+	var start = 0
+	while start != end: {
+		var result = result + get(string, start)
+		var start = start + 1
+	}
+
+	return result
+}
+
+func reverse_string(string): return reverse(string)
+
+var name = input("Name: ")
+var age = int_input("Age: ")
+	
+if age <= 16 {
+	print("Sorry you are too young")
+	break
+}
+
+print(reverse_string_by_words("Welcome to Nitix™ where we make the impossible possible. \\n One important thing to note is that here in Nitix™, everything is backwards"))
+var confirm = input("Do you understand? (Y or N)")
+
+if confirm != "Y" or confirm!="y" or confirm != "yes" or confirm != "Yes" or confirm != "YES" {
+	print("Sorry you are too dumb")
+	break
+}
+
+while True: {
+	var string = int_input("Say something: ")
+	print(reverse_string(string))
+}
